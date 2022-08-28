@@ -1,5 +1,7 @@
 # Currently only Chinese version!
-# 目前该版本的一键版暂未完善！
+
+### 当前版本未经测试，不保证稳定性！
+
 说明：此处为小白版本，教程一切操作基于[宝塔面板](https://www.bt.cn/),建议专业人士[前往该版本](https://github.com/slzzInTheForest/Useless-good-thing-gsgacha) \
 准备工具：\
 1.一台服务器(自己的电脑也行，但是不建议，你问我苹果系统可不可以?¿当然不可以)\
