@@ -1,6 +1,11 @@
 # Currently only Chinese version!
 
 ### 当前版本除api外未经测试，不保证稳定性！
+/
+目前功能： \
+1.祈愿记录返回结果自定义(api) \
+2.游戏内兑换码不管输入什么都提示兑换成功 \
+3.抽卡UI展示（需使用请看自述文件下方的“注意”) \
 
 说明：此处教程为小白版本教程，教程一切操作基于[宝塔面板](https://www.bt.cn/)，建议专业人士自行部署！ \
 \
@@ -77,6 +82,10 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 \
 注意：\
 只有安装了CA证书，并且修改了hosts的电脑才能正常访问！\
+目前UI和API暂时只支持zh-cn \
+在文件"bundle_da41cd81ff0f0a573208.js"中，搜索"your.gacha.api.url"给他改成你的URL \
+我对js并不熟悉，没有能力修改他 \
+文件在yoururl/genshin/event/e20190909gacha-v2/bundle_da41cd81ff0f0a573208.js \
 \
 网址： \
 api ：你的url/event/gacha_info/api/getGachaLog \
