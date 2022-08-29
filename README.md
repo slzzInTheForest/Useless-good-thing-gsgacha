@@ -23,12 +23,12 @@
 1.进入ssh，克隆项目
 ```bash
 cd /www/wwwroot
-git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha-primary.git
+git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 ```
 2.前往宝塔面板网站页面→添加站点 \
 3.\
 域名：hk4e-api.mihoyo.com \
-根目录：/www/wwwroot/Useless-good-thing-gsgacha-primary \
+根目录：/www/wwwroot/Useless-good-thing-gsgacha \
 4.配置ssl证书，在面板网站界面点击 设置→SSL \
 (在ssl文件夹中，密钥：ssl.key证书：ssl.crt，别管宝塔提示的密钥为pen) \
 5.也是在这个界面，点开 配置文件 将下述内容插入到 "#SSL-START SSL相关配置" 的上一行
@@ -51,12 +51,12 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha-primary.
 操作流程(windows)未经测试！: \
 1.进入cmd，克隆项目(不知道cmd是什么的建议别用了)
 ```bash
-git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha-primary.git
+git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 ```
 2.前往宝塔面板网站页面→添加站点 \
 3.\
 域名：hk4e-api.mihoyo.com \
-根目录：C:\Users\你电脑的名字\Useless-good-thing-gsgacha-primary  \
+根目录：C:\Users\你电脑的名字\Useless-good-thing-gsgacha  \
 4.配置ssl证书，在面板网站界面点击 设置→SSL \
 (在ssl文件夹中，密钥：ssl.key证书：ssl.crt，别管宝塔提示的密钥为pen) \
 5.也是在这个界面，点开 配置文件 将下述内容插入到 "#SSL-START SSL相关配置" 的上一行
