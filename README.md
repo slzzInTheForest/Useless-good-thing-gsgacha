@@ -77,9 +77,11 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 \
 注意：\
 只有安装了CA证书，并且修改了hosts的电脑才能正常访问！\
+\
 网址： \
-api ：你的url/event/gacha_info/api/getGachaLog
-UI界面:你的url/genshin/event/e20190909gacha-v2/index.html
+api ：你的url/event/gacha_info/api/getGachaLog \
+UI界面:你的url/genshin/event/e20190909gacha-v2/index.html?init_type=301&lang=zh-cn&authkey=你数据库设置的#/log \
+因API仅开发人员用得到，故自行附加get参数！
 
 备注：\
 数据库说明(Database Description)【例子(example only in Chinese)】: \
