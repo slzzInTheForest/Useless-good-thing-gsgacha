@@ -7,7 +7,7 @@
 2.游戏内兑换码不管输入什么都提示兑换成功 \
 3.抽卡UI展示（需使用请看自述文件下方的“注意”) \
 
-说明：此处教程为小白版本教程，教程一切操作基于[宝塔面板](https://www.bt.cn/)，建议专业人士自行部署！ \
+说明：此处的教程为小白专用，教程一切操作基于[宝塔面板](https://www.bt.cn/)，建议专业人士自行部署！ \
 \
 \
 准备工具：\
@@ -48,7 +48,7 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 上面如果跳提示了就点确定就行了\
 7.编辑本地hosts (你的ip hk4e-api.mihoyo.com)\
 8.前往面板数据库页面，添加数据库→（数据库名用户名密码看着写）→提交
-9.打开mysql.php，将前面几行的数据库填入，然后打开/event/gacha_info/api/getGachaLog.php，同样将前面几行的数据库填入 \
+9.打开config.php，将数据库等配置填入 \
 10.(一定要重启浏览器)访问 hk4e-api.mihoyo.com/mysql.php \
 11.然后就可以根据下面数据库的备注修改数据库，愉快的装逼了！
 \
@@ -76,7 +76,7 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 上面如果跳提示了就点确定就行了\
 7.编辑本地hosts (你的ip hk4e-api.mihoyo.com)\
 8.前往面板数据库页面，添加数据库→（数据库名用户名密码看着写）→提交
-9.打开mysql.php，将前面几行的数据库填入，然后打开/event/gacha_info/api/getGachaLog.php，同样将前面几行的数据库填入 \
+9.打开config.php，将数据库等配置填入 \
 10.(一定要重启浏览器)访问 hk4e-api.mihoyo.com/mysql.php \
 11.然后就可以根据下面数据库的备注修改数据库，愉快的装逼了！
 \
