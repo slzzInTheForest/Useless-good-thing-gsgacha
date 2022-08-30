@@ -1,9 +1,5 @@
 <?php
-//数据库配置
-$servername = "";//数据库地址，为本机可填:localhost
-$username = "";//数据库用户名
-$password = "";//数据库密码
-$dbname = "";//数据库名字
+include ('./config.php');
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);
