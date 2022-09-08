@@ -67,43 +67,44 @@ if (isset($gacha_type))
             if($gacha_type == 301 || $gacha_type == 400 ){
                 $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$begin' Order By id DESC");
             }else{
-                $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$end_id' Order By id DESC");
+                $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$begin' Order By id DESC");
             }
         }else{
             $end_id = $end_id + $size + 1;
-            if ($end_id < $size || $end_id < 0 ){//防止有人作死卡bug
+            if ($end_id < 0 ){//防止有人作死卡bug
                 $end_id = 20 ;
-            }//判断情况
+            }
             if($gacha_type == 301 || $gacha_type == 400 ){
-                $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$begin' Order By id DESC");
+                $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$end_id' Order By id DESC");
             }else{
                 $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$end_id' Order By id DESC");
             }
+
         }
         $list = [];
         $fc = 0;
         while ($row = mysqli_fetch_array($result))
+        {
+            //list json
+            array_push($list,[
+                'uid'=>$row["uid"],
+                'gacha_type'=>$row["gacha_type"],
+                'item_id'=>"",
+                'count'=>"1",
+                'time'=>$row["time"],
+                'name'=>$row["name"],
+                'lang'=>"zh-cn",
+                'item_type'=>$row["item_type"],
+                'rank_type'=>$row["rank_type"],
+                'id'=>$row["id"]
+            ]);
+            $fc++;
+            if ($fc >= $size)
             {
-                //list json
-                array_push($list,[
-                    'uid'=>$row["uid"],
-                    'gacha_type'=>$row["gacha_type"],
-                    'item_id'=>"",
-                    'count'=>"1",
-                    'time'=>$row["time"],
-                    'name'=>$row["name"],
-                    'lang'=>"zh-cn",
-                    'item_type'=>$row["item_type"],
-                    'rank_type'=>$row["rank_type"],
-                    'id'=>$row["id"]
-                ]);
-                $fc++;
-                if ($fc >= $size)
-                {
-                    break;
-                }
+                break;
             }
-            //输出数据
+        }
+        //输出数据
         $res = array(
             'retcode'=>0,
             'message'=>"OK",
