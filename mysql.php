@@ -1,7 +1,7 @@
 <?php
 include ('./config.php');
 
-if ($_GET['key'] == $key){
+if ($_GET['key'] == $key || $key == ""){
     // 创建连接
     $conn = new mysqli($servername, $username, $password, $dbname);
     // 检测连接
@@ -10,7 +10,7 @@ if ($_GET['key'] == $key){
     }
     // 使用 sql 创建数据表
     $sql = "CREATE TABLE gacha (
-        id int(255), 
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         authkey varchar(255),
         item_type varchar(255),
         rank_type varchar(255),
