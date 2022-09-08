@@ -95,7 +95,7 @@ if (isset($gacha_type))
             'message'=>"OK",
             'data'=>array(
                 'page'=>"$page",
-                'size'=>"$size",
+                'size'=>"$fc",
                 'total'=>"0",
                 'list'=>$list
             ),
