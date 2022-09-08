@@ -12,7 +12,7 @@
 #### 安装说明：|[linux教程](https://github.com/slzzInTheForest/Useless-good-thing-gsgacha/blob/main/README/installlinux.md)|windows暂无测试过教程,宝塔面板有win版本,自行在电脑安装git后参照linux教程即可|
 ##### PS:安装说明为小白专用，教程一切操作基于[宝塔面板](https://www.bt.cn/)，建议专业人士自行部署！ 
 
-### 数据库说明： |[数据库说明](https://github.com/slzzInTheForest/Useless-good-thing-gsgacha/blob/main/README/database.md)|
+### 数据库说明： |[数据库说明](/README/database.md)|
 
 注意：\
 只有安装了CA证书，并且修改了hosts的电脑才能正常访问！\
@@ -25,6 +25,6 @@
 api ：你的url/event/gacha_info/api/getGachaLog \
 UI界面:你的url/genshin/event/e20190909gacha-v2/index.html?init_type=301&lang=zh-cn&authkey=你数据库设置的#/log \
 数据设置: 你的url/event/gacha_info/api/gachalogadd?authkey=&item_type=&rank_type=&name=&gacha_type=&uid=&quantity= \
-数据设置中可参照数据库说明进行配置！
+数据设置中可参照数据库说明进行配置！(数据设置为临时版，填充抽数暂时均为黑缨枪！)
 \
 因API仅开发人员用得到，故自行附加get参数！

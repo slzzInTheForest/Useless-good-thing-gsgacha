@@ -28,24 +28,8 @@ elseif ($size < 0) {
 //end_id为空
 if (is_numeric($end_id) != 1 || $end_id == "" && isset($end_id)) {
     $end_id = 0;
-}//begin_id处理
-if (isset($begin_id))
-{
-    if ($begin_id =="")
-    {
-        $begin_id = 0 + $size;
-    }
-    else
-    {
-        $end_id = $begin_id + $size + 1;
-    }
-}elseif (is_numeric($begin_id) != 1 && isset($begin_id)){
-    $begin_id = 0 + $size;
-}//begin_id计算小于0或者有人作死
-if ($end_id < 0)
-{
-    $end_id = 0 + $size ;
 }
+
 
 if (isset($gacha_type))
 {
@@ -57,7 +41,7 @@ if (isset($gacha_type))
     else
     {
         if (isset($begin_id)) {
-            if ($begin_id =="") {
+            if ($begin_id =="" || is_numeric($begin_id) != 1) {
                 $begin = 0 + $size;
             } else {
                 $begin = $begin_id + $size + 1;
@@ -79,7 +63,6 @@ if (isset($gacha_type))
             }else{
                 $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$end_id' Order By id DESC");
             }
-
         }
         $list = [];
         $fc = 0;
@@ -99,8 +82,7 @@ if (isset($gacha_type))
                 'id'=>$row["id"]
             ]);
             $fc++;
-            if ($fc >= $size)
-            {
+            if ($fc >= $size) {
                 break;
             }
         }
