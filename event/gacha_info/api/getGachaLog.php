@@ -16,16 +16,17 @@ else
 }
 
 //size为空
-if ($size == "")
-{
+if ($size == "" || is_numeric($size) != 1) {
     $size = 5;
 }//size大于20
-elseif ($size > 20)
-{
+elseif ($size > 20) {
     $size = 20;
-}//end_id为空
-if ($end_id == "" && isset($end_id))
-{
+}
+elseif ($size < 0) {
+    $size = 5;
+}
+//end_id为空
+if (is_numeric($end_id) != 1 || $end_id == "" && isset($end_id)) {
     $end_id = 0;
 }//begin_id处理
 if (isset($begin_id))
@@ -36,8 +37,15 @@ if (isset($begin_id))
     }
     else
     {
-        $end_id = $begin_id - $size - 1;
+        $end_id = $begin_id + $size + 1;
     }
+}
+elseif (is_numeric($begin_id) != 1 && isset($begin_id)){
+    $begin_id = 0 + $size;
+}//begin_id计算小于0或者有人作死
+if ($end_id < 0)
+{
+    $end_id = 0 ;
 }
 
 if (isset($gacha_type))
@@ -52,11 +60,11 @@ if (isset($gacha_type))
         //角色卡池和卡池2
         if($gacha_type == 301 || $gacha_type == 400 )
         {
-            $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id > $end_id ");
+            $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$end_id' Order By id DESC");
         }
         else
         {
-            $result = mysqli_query($con, "SELECT * FROM gacha WHERE (authkey='$authkey' and gacha_type='$gacha_type') limit $end_id,$size");
+            $result = mysqli_query($con, "SELECT * FROM gacha WHERE authkey='$authkey' and gacha_type='$gacha_type' and id < '$end_id' Order By id DESC");
         }
         $list = [];
         $fc = 0;

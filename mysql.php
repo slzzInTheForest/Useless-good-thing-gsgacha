@@ -10,7 +10,7 @@ if ($_GET['key'] == $key){
     }
     // 使用 sql 创建数据表
     $sql = "CREATE TABLE gacha (
-        id varchar(255), 
+        id int(255), 
         authkey varchar(255),
         item_type varchar(255),
         rank_type varchar(255),
