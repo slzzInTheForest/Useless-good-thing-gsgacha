@@ -49,7 +49,7 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 7.编辑本地hosts (你的ip hk4e-api.mihoyo.com)\
 8.前往面板数据库页面，添加数据库→（数据库名用户名密码看着写）→提交
 9.打开config.php，将数据库等配置填入 \
-10.(一定要重启浏览器)访问 hk4e-api.mihoyo.com/mysql.php \
+10.(一定要重启浏览器)访问 hk4e-api.mihoyo.com/mysql.php (备注:如果设置key请在后面加上: ?key=你设置的key)\
 11.然后就可以根据下面数据库的备注修改数据库，愉快的装逼了！
 \
 \
@@ -77,7 +77,7 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 7.编辑本地hosts (你的ip hk4e-api.mihoyo.com)\
 8.前往面板数据库页面，添加数据库→（数据库名用户名密码看着写）→提交
 9.打开config.php，将数据库等配置填入 \
-10.(一定要重启浏览器)访问 hk4e-api.mihoyo.com/mysql.php \
+10.(一定要重启浏览器)访问 hk4e-api.mihoyo.com/mysql.php (备注:如果设置key请在后面加上: ?key=你设置的key)\
 11.然后就可以根据下面数据库的备注修改数据库，愉快的装逼了！
 \
 注意：\

@@ -6,8 +6,14 @@ $size = $_GET["size"];
 $end_id = $_GET["end_id"];
 $gacha_type = $_GET["gacha_type"];
 $begin_id = $_GET["begin_id"];
-$authkey = $_GET["authkey"];//使用请求附加的authkey
-//$authkey = "cao"; //固定请求的authkey，和上面的那个二选一
+if ($eauthkey == "" || $eauthkey == "false")
+{
+    $authkey = $_GET["authkey"];//使用请求附加的authkey
+}
+else
+{
+    $authkey = $eauthkey ;//使用配置文件中的authkey
+}
 
 //page为空
 if ($page == "")
