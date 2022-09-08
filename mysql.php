@@ -24,6 +24,8 @@ if ($_GET['key'] == $key || $key == ""){
         )";
     if ($conn->query($sql) === TRUE) {
         echo "创建成功！";
+    } elseif($conn->error == "Table 'gacha' already exists"){
+        echo "数据表已存在！";
     } else {
         echo "创建数据表错误: " . $conn->error;
     }
