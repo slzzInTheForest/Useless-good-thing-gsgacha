@@ -29,7 +29,7 @@ git clone https://github.com/slzzInTheForest/Useless-good-thing-gsgacha.git
 ![](READMEimg/webui.png)\
 4.配置ssl证书，在面板网站界面点击 设置→SSL \
 ![](READMEimg/ssl.png) \
-5.前往github ssl文件夹复制证书([点击转跳](https://github.com/slzzInTheForest/Useless-good-thing-gsgacha/tree/main/ssl))\
+5.前往github ssl文件夹复制证书([点击转跳](/ssl))\
 (密钥：ssl.key证书：ssl.crt，别管宝塔提示的密钥为pem) \
 5.也是在这个界面，点开 配置文件 将下述内容插入到 "#SSL-START SSL相关配置" 的上一行
 ![](READMEimg/php.png)

@@ -1,5 +1,6 @@
 # Currently only Chinese version!
 ## 网页UI版将不再进行BUG修复或者更新！
+# 因为V1版本问题过多，修复难度较大，现进行V2版本重新构建！
 当前已知BUG: \
 1.为了适配倒序读取ID，导致目前authkey只能存在一个，否则出现前几个无法读取数据的BUG，正在重构新思路中！ \
 
@@ -9,7 +10,7 @@
 3.抽卡UI展示（需使用请看自述文件下方的“注意”) 
 
 
-#### 安装说明：|[linux教程](https://github.com/slzzInTheForest/Useless-good-thing-gsgacha/blob/main/README/installlinux.md)|windows暂无测试过教程,宝塔面板有win版本,自行在电脑安装git后参照linux教程即可|
+#### 安装说明：|[linux教程](/README/installlinux.md)|windows暂无测试过教程,宝塔面板有win版本,自行在电脑安装git后参照linux教程即可|
 ##### PS:安装说明为小白专用，教程一切操作基于[宝塔面板](https://www.bt.cn/)，建议专业人士自行部署！ 
 
 ### 数据库说明： |[数据库说明](/README/database.md)|
