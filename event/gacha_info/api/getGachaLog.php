@@ -1,7 +1,7 @@
 <?php
 include ('../../../config.php');
 
-$page = $_GET["page"];
+$page = $_GET["page"] ? intval($_GET["page"]) : 1;
 $size = $_GET["size"];
 $end_id = $_GET["end_id"];
 $gacha_type = $_GET["gacha_type"];
@@ -15,11 +15,7 @@ else
     $authkey = $eauthkey ;//使用配置文件中的authkey
 }
 
-//page为空
-if ($page == "")
-{
-    $page = 1;
-}//size为空
+//size为空
 if ($size == "")
 {
     $size = 5;
@@ -60,7 +56,7 @@ if (isset($gacha_type))
         }
         else
         {
-            $result = mysqli_query($con, "SELECT * FROM gacha WHERE (authkey='$authkey' and gacha_type_id='$gacha_type' and id > $end_id)");
+            $result = mysqli_query($con, "SELECT * FROM gacha WHERE (authkey='$authkey' and gacha_type='$gacha_type') limit $end_id,$size");
         }
         $list = [];
         $fc = 0;
@@ -91,7 +87,7 @@ if (isset($gacha_type))
             'message'=>"OK",
             'data'=>array(
                 'page'=>"$page",
-                'size'=>"$size",
+                'size'=>"$result->num_rows",
                 'total'=>"0",
                 'list'=>$list
             ),
