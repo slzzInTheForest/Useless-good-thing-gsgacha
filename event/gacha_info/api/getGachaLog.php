@@ -64,6 +64,7 @@ if (isset($gacha_type))
                 $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$end_id' Order By id DESC");
             }
         }
+        //数据输出
         $list = [];
         $fc = 0;
         while ($row = mysqli_fetch_array($result))
