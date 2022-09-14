@@ -105,20 +105,27 @@ if (isset($gacha_type))
     }
 
 }
-
 else
 {
-    $res = array(
-        'retcode'=>0,
-        'message'=>"OK",
-        'data'=> array(
-            'page'=>"1",
-            'size'=>"0",
-            'total'=>"0",
-            'list'=>array(),
-            'region'=>"cn_gf01"
-        )
-    );
+    if ($_GET['tool'] == "list")
+    {
+        $res = array(
+            'dx'=>"OK",
+        );
+    }else{
+        $res = array(
+            'retcode'=>0,
+            'message'=>"OK",
+            'data'=> array(
+                'page'=>"1",
+                'size'=>"0",
+                'total'=>"0",
+                'list'=>array(),
+                'region'=>"cn_gf01"
+            )
+        );
+    }
+
 }
 echo json_encode($res,JSON_UNESCAPED_UNICODE);
 //gacha_type:301=角色1 302=武器 100=新手 200=常驻 400=角色2

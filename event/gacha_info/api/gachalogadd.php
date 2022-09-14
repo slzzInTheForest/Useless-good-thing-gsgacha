@@ -30,17 +30,23 @@ if ( $_GET['key'] == $key || $key == ""){
             echo "gacha_type不得为空";
         }elseif ($uid == ""){
             echo "uid不得为空";
-        }elseif ($quantity < 0){
-            echo "几抽出金设置负数？请不要开玩笑！";
-        } else {
+        }else {
             if ($time == ""){
                 $time = date("Y-m-d H:i:s");
-            }if ($quantity == "" || is_numeric($quantity) != 1){
+            }if ($quantity == 0 || $quantity == "" || is_numeric($quantity) != 1){
                 $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '$item_type', '$rank_type' ,'$name','$time','$gacha_type','$uid')";
                 mysqli_query($mysql, $sql);
                 mysqli_commit($mysql);
                 echo "插入成功！请求时间:$gettime,共插入一条数据 <br> 名字:$name,authkey:$authkey,物品类型:$item_type,时间:$time,gacha_type:$gacha_type,uid:$uid";
-            }else{
+            }elseif($quantity < 0){
+                echo "正在插入数据中...请稍后！<br>";
+                for ($fc = 0;$fc <= -$quantity; $fc++ ){
+                    $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '$item_type', '$rank_type' ,'$name','$time','$gacha_type','$uid')";
+                    mysqli_query($mysql, $sql);
+                }
+                mysqli_commit($mysql);
+                echo "插入成功！请求时间:$gettime,五星为 <br> 名字:$name,authkey:$authkey,物品类型:$item_type,时间:$time,gacha_type:$gacha_type,uid:$uid ,共插入". -$quantity ."次";
+            } else{
                 echo "正在插入数据中...请稍后！<br>";
                 for ($fc = 0;$fc <= $quantity - 1; $fc++ ){
                     $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '武器', '3' ,'黑缨枪','$time','$gacha_type','$uid')";
