@@ -11,14 +11,17 @@
 
 #### 安装说明：|[linux教程](/README/installlinux.md)|windows暂无测试过教程,宝塔面板有win版本,自行在电脑安装git后参照linux教程即可|
 ##### PS:安装说明为小白专用，教程一切操作基于[宝塔面板](https://www.bt.cn/)，建议专业人士自行部署！ 
-
-### 数据库说明： |[数据库说明](/README/database.md)|
-
 注意：\
 1.抓包出来的UI的URL在浏览器中是 无 法 使 用 的，请在游戏内直接查看，或者直接使用API！ \
 2.只有安装了CA证书，并且修改了hosts的电脑才能正常访问！\
 3.目前UI和API暂时只支持zh-cn \
-4.在文件"bundle_da41cd81ff0f0a573208.js"中，搜索"your.gacha.api.url"给他改成你的URL \
+4.当前自动填充版本自动填充内容为黑缨枪！
+### 可使用[win工具](https://github.com/slzzInTheForest/tool/releases/download/exe/Useless-good-thing-gsgacha.exe)进行记录写入，若需手动对接api请查看 \
+
+### 数据库说明： |[数据库说明](/README/database.md)|
+
+注意2：
+1.在文件"bundle_da41cd81ff0f0a573208.js"中，搜索"your.gacha.api.url"给他改成你的URL \
   我对js并不熟悉，没有能力修改他 \
   文件在yoururl/genshin/event/e20190909gacha-v2/bundle_da41cd81ff0f0a573208.js \
 \
