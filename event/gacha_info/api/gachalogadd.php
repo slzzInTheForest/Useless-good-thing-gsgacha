@@ -56,6 +56,7 @@ if ( $_GET['key'] == $key || $key == ""){
                 mysqli_commit($mysql);
             }
             $res = array(
+                'message'=>"OK",
                 'time'=>"$gettime",
                 'frequency'=>"$quantity",
                 'name'=>"$name",
