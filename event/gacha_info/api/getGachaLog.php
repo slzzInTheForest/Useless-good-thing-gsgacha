@@ -27,13 +27,15 @@ elseif ($size < 0) {
 }
 //end_id为空
 if (is_numeric($end_id) != 1 || $end_id == "" && isset($end_id)) {
-    $end_id = 0;
+    $end_id = 9999999999;
+}if ($end_id == 0){
+    $end_id = 9999999999;
 }
 
 
 if (isset($gacha_type))
 {
-    $con=mysqli_connect($servername, $username, $password, $dbname);
+    $mysql=mysqli_connect($servername, $username, $password, $dbname);
     if (mysqli_connect_errno())
     {
         die("Connection failed: " . mysqli_connect_error());
@@ -43,25 +45,26 @@ if (isset($gacha_type))
         if (isset($begin_id)) {
             if ($begin_id =="" || is_numeric($begin_id) != 1) {
                 $begin = 0 + $size;
-            } else {
+            }elseif ($begin_id == 0){
+                $begin = 9999999999;
+            }else {
                 $begin = $begin_id + $size + 1;
             }if($begin < 0 ){//防止有人作死卡bug
                 $begin = 20 ;
             }
             if($gacha_type == 301 || $gacha_type == 400 ){
-                $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$begin' Order By id DESC");
+                $result = mysqli_query($mysql, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$begin' Order By id DESC");
             }else{
-                $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$begin' Order By id DESC");
+                $result = mysqli_query($mysql, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$begin' Order By id DESC");
             }
         }else{
-            $end_id = $end_id + $size + 1;
             if ($end_id < 0 ){//防止有人作死卡bug
                 $end_id = 20 ;
             }
             if($gacha_type == 301 || $gacha_type == 400 ){
-                $result = mysqli_query($con, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$end_id' Order By id DESC");
+                $result = mysqli_query($mysql, "SELECT * FROM gacha WHERE (gacha_type = 301 or gacha_type = 400) and authkey='$authkey' and id < '$end_id' Order By id DESC");
             }else{
-                $result = mysqli_query($con, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$end_id' Order By id DESC");
+                $result = mysqli_query($mysql, "SELECT * FROM gacha WHERE gacha_type='$gacha_type' and authkey='$authkey' and id < '$end_id' Order By id DESC");
             }
         }
         //数据输出

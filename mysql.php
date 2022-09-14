@@ -3,10 +3,10 @@ include ('./config.php');
 
 if ($_GET['key'] == $key || $key == ""){
     // 创建连接
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $mysql = new mysqli($servername, $username, $password, $dbname);
     // 检测连接
-    if ($conn->connect_error) {
-        die("连接失败: " . $conn->connect_error);
+    if ($mysql->connect_error) {
+        die("连接失败: " . $mysql->connect_error);
     }
     // 使用 sql 创建数据表
     $sql = "CREATE TABLE gacha (
@@ -22,14 +22,14 @@ if ($_GET['key'] == $key || $key == ""){
         count varchar(255),
         item_id varchar(255)
         )";
-    if ($conn->query($sql) === TRUE) {
+    if ($mysql->query($sql) === TRUE) {
         echo "创建成功！";
-    } elseif($conn->error == "Table 'gacha' already exists"){
+    } elseif($mysql->error == "Table 'gacha' already exists"){
         echo "数据表已存在！";
     } else {
-        echo "创建数据表错误: " . $conn->error;
+        echo "创建数据表错误: " . $mysql->error;
     }
 
-    $conn->close();
+    $mysql->close();
 }
 
