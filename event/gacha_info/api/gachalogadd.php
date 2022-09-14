@@ -36,18 +36,16 @@ if ( $_GET['key'] == $key || $key == ""){
             }if ($quantity == 0 || $quantity == "" || is_numeric($quantity) != 1){
                 $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '$item_type', '$rank_type' ,'$name','$time','$gacha_type','$uid')";
                 mysqli_query($mysql, $sql);
+                //提交数据
                 mysqli_commit($mysql);
-                echo "插入成功！请求时间:$gettime,共插入一条数据 <br> 名字:$name,authkey:$authkey,物品类型:$item_type,时间:$time,gacha_type:$gacha_type,uid:$uid";
             }elseif($quantity < 0){
-                echo "正在插入数据中...请稍后！<br>";
                 for ($fc = 0;$fc <= -$quantity; $fc++ ){
                     $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '$item_type', '$rank_type' ,'$name','$time','$gacha_type','$uid')";
                     mysqli_query($mysql, $sql);
                 }
+                //提交数据
                 mysqli_commit($mysql);
-                echo "插入成功！请求时间:$gettime,五星为 <br> 名字:$name,authkey:$authkey,物品类型:$item_type,时间:$time,gacha_type:$gacha_type,uid:$uid ,共插入". -$quantity ."次";
             } else{
-                echo "正在插入数据中...请稍后！<br>";
                 for ($fc = 0;$fc <= $quantity - 1; $fc++ ){
                     $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '武器', '3' ,'黑缨枪','$time','$gacha_type','$uid')";
                     mysqli_query($mysql, $sql);
@@ -56,9 +54,17 @@ if ( $_GET['key'] == $key || $key == ""){
                 mysqli_query($mysql, $sql);
                 //提交数据
                 mysqli_commit($mysql);
-                echo "插入成功！请求时间:$gettime,共插入$quantity 条数据，其中五星为 <br> 名字:$name,authkey:$authkey,物品类型:$item_type,时间:$time,gacha_type:$gacha_type,uid:$uid";
             }
-
+            $res = array(
+                'time'=>"$gettime",
+                'frequency'=>"$quantity",
+                'name'=>"$name",
+                'authkey'=>"$authkey",
+                'item_type'=>"$item_type",
+                'gacha_type'=>"$gacha_type",
+                'uid'=>"$uid",
+            );
+            echo json_encode($res,JSON_UNESCAPED_UNICODE);
         }
         mysqli_close($mysql);
     }
