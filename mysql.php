@@ -29,7 +29,13 @@ if ($_GET['key'] == $key || $key == ""){
     } else {
         echo "创建数据表错误: " . $mysql->error;
     }
-
+    //直接复制一份得了
+    $sql = "CREATE TABLE cdkey (
+        cdkey varchar(255),
+        msg varchar(255),
+        retcode varchar(255)
+        )";
+    $mysql->query($sql);
     $mysql->close();
 }
 

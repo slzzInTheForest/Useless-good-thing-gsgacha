@@ -1,10 +1,26 @@
 <?php
+include ('../../../config.php');
+
 $cdkey = $_GET['cdkey'] ;
-$scdkey = strtolower($cdkey);
-if ($scdkey == "kfcfkxqsvme50" || $scdkey == "kfcfkxqsv50" || $scdkey == "kfccrazythursdayvme50" || $scdkey == "kfccrazythursdayv50"){
+if($Case_sensitive == "false" || $Case_sensitive == "") {
+    $scdkey = strtolower($cdkey);
+}
+//数据库
+$mysql=mysqli_connect($servername, $username, $password, $dbname);
+$result = mysqli_query($mysql, "SELECT * FROM cdkey WHERE cdkey='$cdkey'");
+$row = mysqli_fetch_array($result) ;
+if (mysqli_num_rows($result) > 0){
+    $msg = $row["msg"] ;
+    /*
+    if ($row["retcode"] == ""){
+        $retcode = -2016 ;
+    }else{
+        $retcode = $row["retcode"] ;
+    }
+    */
     $res = array(
         'data'=>null,
-        'message'=>"?你貌似在想桃子吃！",
+        'message'=>"$msg",
         'retcode'=>-2016
     );
 }else{
