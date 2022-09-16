@@ -12,7 +12,7 @@ if ($cdkey12 == "true" && strlen($cdkey) == 12){
     $data = curl_exec($cu);
     curl_close($cu);
     echo $data;
-}else{
+}elseif($cdkey12 == "false" || strlen($cdkey) != 12 || $cdkey == ""){
     if($Case_sensitive == "false" || $Case_sensitive == "") {
         $scdkey = strtolower($cdkey);
     }
@@ -44,6 +44,5 @@ if ($cdkey12 == "true" && strlen($cdkey) == 12){
             )
         );
     }
-
     echo json_encode($res,JSON_UNESCAPED_UNICODE);
 }

@@ -10,7 +10,8 @@ $eauthkey = "";//"留空"、"false"将采用请求中的authkey，否则将采�
 
 //关于cdkey配置
 $Case_sensitive = "false" ; // true为区分、false为不区分、留空为不区分
-$cdkey12 = "true" ; //cdkey为12位时提交到官方服务器（官方兑换码大多为12位),true开启，其他内容均为关闭
+$cdkey12 = "true" ; //true:开启cdkey为12位时提交到官方服务器（官方兑换码大多为12位)
+//false:关闭提交功能
 
 //部分操作密码（防止被恶意操作，留空为不设置)
 $key = "";
