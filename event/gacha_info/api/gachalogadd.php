@@ -39,7 +39,7 @@ if ( $_GET['key'] == $key || $key == ""){
                 //提交数据
                 mysqli_commit($mysql);
             }elseif($quantity < 0){
-                for ($fc = 0;$fc <= -$quantity; $fc++ ){
+                for ($fc = 1;$fc <= -$quantity; $fc++ ){
                     $sql = "INSERT INTO gacha (authkey, item_type,rank_type,name,time,gacha_type,uid)VALUES ('$authkey', '$item_type', '$rank_type' ,'$name','$time','$gacha_type','$uid')";
                     mysqli_query($mysql, $sql);
                 }
