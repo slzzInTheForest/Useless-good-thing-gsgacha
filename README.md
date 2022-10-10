@@ -18,6 +18,7 @@
 3.目前UI和API暂时只支持zh-cn \
 4.当前自动填充版本自动填充内容为黑缨枪！
 ### 可使用[win工具](https://github.com/slzzInTheForest/tool/releases/download/exe/Useless-good-thing-gsgacha.exe)进行记录写入，若需手动对接api请查看 \
+### 注意，本工具会报毒，因为写这个win工具用的语言有点问题。 \
 
 ### 数据库说明： |[数据库说明](/README/database.md)|
 
