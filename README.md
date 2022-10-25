@@ -20,6 +20,7 @@
 4.当前自动填充版本自动填充内容为黑缨枪！ \
 5.若使用mongo搭配gc则注意卡池id:301=角色1 302=武器 100=新手 200=常驻 400=角色2 ,其他id无法识别!
 ### 可使用[win工具](https://github.com/slzzInTheForest/tool/releases/download/exe/Useless-good-thing-gsgacha.exe)进行记录写入，若需手动对接api请查看 \
+### 注意，本工具会报毒，因为写这个win工具用的语言有点问题。 \
 
 ### 数据库说明： |[数据库说明](/README/database.md)|
 
