@@ -163,14 +163,10 @@ if (isset($gacha_type))
                 }
             }
         }
-
         $cursor = $manager->executeQuery("$mongo_dbname.gachas",$query);
         //数据输出
         $list = [];
         $fc = 0;
-        function chni21bkcb($mdb_itemID){
-
-        }
         $item_data=json_decode(file_get_contents("../../../$itemid_filename"),true);
         foreach ($cursor as $document) {
             //判断类型
@@ -203,7 +199,9 @@ if (isset($gacha_type))
                 break;
             }
         }
-
+        if (isset($begin_id)){
+            $list = array_reverse($list) ;
+        }
         //输出数据
         $res = array(
             'retcode'=>0,
