@@ -132,31 +132,31 @@ if (isset($gacha_type))
         }
         if (isset($begin_id)){
             if($gacha_type == 301 || $gacha_type == 400 ){
-                if (!$begin_id || $begin_id == 0){
+                if ($begin_id == 0){
                     $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>['$in'=>[301,400]]],['sort'=>['_id'=>-1]]);
                     //'views' => ['$gte' => $size ,],
                 }else{
                     $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>['$in'=>[301,400]],'_id'=>['$lt'=>new MongoDB\BSON\ObjectId($begin_id)]],['sort'=>['_id'=>-1]]);
                 }
             }else{
-                if (!$begin_id || $begin_id == 0){
-                    $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>['$in'=>[301,400]]],['sort'=>['_id'=>-1]]);
-                    //'views' => ['$gte' => $size ,],
-                }else{
-                    $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>['$in'=>[301,400]],'_id'=>['$lt'=>new MongoDB\BSON\ObjectId($begin_id)]],['sort'=>['_id'=>-1]]);
-                }
-            }
-        }else{
-            if (isset($begin_id)){
-                if (!$begin_id || $begin_id == 0){
+                if ($begin_id == 0){
                     $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>(int)$gacha_type],['sort'=>['_id'=>-1]]);
                     //'views' => ['$gte' => $size ,],
                 }else{
                     $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>(int)$gacha_type,'_id'=>['$lt'=>new MongoDB\BSON\ObjectId($begin_id)]],['sort'=>['_id'=>-1]]);
                 }
+            }
+        }else{
+            if ($gacha_type == 301 || $gacha_type == 400){
+                if (!$end_id || $end_id == 0){
+                    $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>['$in'=>[301,400]]]);
+                    //'views' => ['$gte' => $size ,],
+                }else{
+                    $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>['$in'=>[301,400]],'_id'=>['$gt'=>new MongoDB\BSON\ObjectId($end_id)]]);
+                }
             }else{
                 if (!$end_id || $end_id == 0){
-                    $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>(int)$gacha_type],);
+                    $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>(int)$gacha_type]);
                     //'views' => ['$gte' => $size ,],
                 }else{
                     $query = new \MongoDB\Driver\Query(['ownerId'=>$m_uid,'gachaType'=>(int)$gacha_type,'_id'=>['$gt'=>new MongoDB\BSON\ObjectId($end_id)]]);

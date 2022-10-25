@@ -1,7 +1,7 @@
 # Currently only Chinese version!
 ## 网页UI版将不再进行更新！
 当前已知BUG: \
-正在测试中~~~ \
+1.mongodb数据库往回翻存在丢失内容的问题 
 
 目前功能： \
 1.祈愿记录返回结果自定义,支持mysql和mongodb的读取(api) \
