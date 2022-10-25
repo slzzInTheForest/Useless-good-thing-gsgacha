@@ -1,6 +1,9 @@
 <?php
 include ('../../../config.php');
 $gettime = date("Y/m/d H:i:s");
+if ($use_db != 0 || !$servername || !$username || !$password || !$dbname){
+    die (array('message'=>'mysql is not enabled or the mysql parameter is empty'));
+}
 if ( $_GET['key'] == $key || $key == ""){
     //连接数据库
     $mysql=mysqli_connect($servername, $username, $password, $dbname);
