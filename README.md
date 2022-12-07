@@ -1,5 +1,4 @@
 # Currently only Chinese version!
-## 网页UI版将不再进行更新！
 当前已知BUG: \
 暂未发现~~~ \
 
@@ -24,9 +23,6 @@
 ### 数据库说明： |[数据库说明](/README/database.md)|
 
 注意2：
-1.在文件"bundle_da41cd81ff0f0a573208.js"中，搜索"your.gacha.api.url"给他改成你的URL \
-我对js并不熟悉，没有能力修改他 \
-文件在yoururl/genshin/event/e20190909gacha-v2/bundle_da41cd81ff0f0a573208.js \
 \
 网址： \
 api ：你的url/event/gacha_info/api/getGachaLog \
